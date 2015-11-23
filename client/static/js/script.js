@@ -26,7 +26,8 @@ myApp.config(function ($routeProvider, $locationProvider){
             })
             .when('/user/:id', {
                   templateUrl: './static/partials/profile.html',
-                  css: './static/css/style.css'
+                  css: './static/css/style.css',
+                  controller: 'ProfileController'
             })
             .otherwise({redirectTo: '/'});
 });

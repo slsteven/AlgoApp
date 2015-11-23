@@ -44,7 +44,9 @@ myApp.controller('UserController', function ($scope, $location, UserFactory, $ro
 			}
 			else {
 				$rootScope.user = data
+				console.log($rootScope)
 				$location.path('/dashboard');
+
 			}
 		});
 	}

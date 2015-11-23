@@ -1,0 +1,114 @@
+<a href="">User Profile</a> | <a href="">Lets do an Algo!</a> | <a href="">Login</a>
+
+<p>rootscope (session):{{logged_in_user._id}}</p>
+<!-- <div ng-if="logged_in_user._id"> -->
+	<button ng-click="logout()">Logout</button>
+	<h1>Homepage after login</h1>
+	<h1>Welcome, {{logged_in_user.name}}!</h1>
+
+	<br>
+
+
+	
+	<ul>
+		<li><a href="">Week 1 - Strings</a></li>
+		<li><a href="">Week 2 - Arrays</a></li>
+		<li><a href="">Week 3 - Linked Lists</a></li>
+		<li><a href="">Week 4 - Searches</a></li>
+		<li><a href="">Week 5 - Searches</a></li>
+		<li><a href="">Week 6 - Searches</a></li>
+		<li><a href="">Week 1 - Strings</a></li>
+		<li><a href="">Week 2 - Arrays</a></li>
+		<li><a href="">Week 3 - Linked Lists</a></li>
+		<li><a href="">Week 4 - Searches</a></li>
+		<li><a href="">Week 5 - Searches</a></li>
+		<li><a href="">Week 6 - Searches</a></li>
+	</ul>
+
+<hr>
+
+	<div class="col-md-12">
+		<form class="form-group">
+			<label for="search">Search</label>
+			<input type="text" class="form-control" id="search">
+		</form>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table">
+				<thead>
+					<th>Week</th>
+					<th>Topic</th>
+					<th>Difficulty</th>
+					<th>Posts</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Week 1</td>
+						<td>Sorts</td>
+						<td>Medium</td>
+						<td>Overview</td>
+					</tr>
+					<tr>
+						<td>Week 2</td>
+						<td>Arrays</td>
+						<td>Medium</td>
+						<td>Overview</td>
+					</tr>
+					<tr>
+						<td>Week 3</td>
+						<td>Fundamentals</td>
+						<td>Medium</td>
+						<td>Overview</td>
+					</tr>
+						
+					<tr ng-repeat="topic in all_topics">
+						<td>{{topic.category}}</td>
+						<td><a href="" ng-click="topicShow(topic._id)">{{topic.topic_name}}</a></td>
+						<td>{{topic.user_name}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-1-offset">
+			<a href="#/new/algo"><button>Post new algorithm</button></a>
+		</div>
+	</div>
+</div> <!-- end of ngif rootscope -->
+<br>
+<br>
+<!-- <p ng-if="!logged_in_user">Please log in</p> -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-6">
+			<h3>Add new algorithm</h3>
+			<form class="form-group">
+				<label for="topic">Algorithm TItle:</label>
+	  			<input type="text" class="form-control" id="topic" ng-model="topic.name">
+
+		  		<label for="description">Description</label>
+	  			<textarea class="form-control" rows="5" id="description" placeholder="write or add a snippet" ng-model="topic.description"></textarea>
+
+		     	<label for="category">Category</label>
+				  <select class="form-control" id="category" ng-model="topic.category">
+				    <option>Arrays</option>
+				    <option>Strings</option>
+				    <option>Sorts</option>
+				    <option>Searches</option>
+				    <option>Data Structures</option>
+				    <option>Linked Lists</option>
+				  </select>
+				<br>
+				<button type="submit" ng-click="addTopic(topic)" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+	</div>
+
+
+
+

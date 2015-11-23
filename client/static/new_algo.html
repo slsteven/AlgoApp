@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-6">
+			<h3>Add new algorithm</h3>
+			<form class="form-group">
+				<label for="topic">Algorithm TItle:</label>
+	  			<input type="text" class="form-control" id="topic" ng-model="topic.name">
+
+		  		<label for="description">Description</label>
+	  			<textarea class="form-control" rows="5" id="description" placeholder="write or add a snippet" ng-model="topic.description"></textarea>
+
+		     	<label for="category">Category</label>
+				  <select class="form-control" id="category" ng-model="topic.category">
+				    <option>Arrays</option>
+				    <option>Strings</option>
+				    <option>Sorts</option>
+				    <option>Searches</option>
+				    <option>Data Structures</option>
+				    <option>Linked Lists</option>
+				  </select>
+				<br>
+				<button type="submit" ng-click="addTopic(topic)">Submit</button>
+			</form>
+		</div>
+	</div>
+</div>

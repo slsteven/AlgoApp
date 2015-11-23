@@ -1,0 +1,51 @@
+<h1>Hello!</h1>
+<h2>Please enter your name to join and share your ideas</h2>
+<!-- <p>{{validations.name.message}}</p> -->
+<p ng-repeat="x in data">{{x}}</p>
+<!-- <form>
+	<input type="text" ng-model="newUser.name">
+	<input type="submit" value="Enter" ng-click="addUser()">
+</form> -->
+
+
+<br>
+
+<form name="userForm">
+
+    <div class="form-group">
+      <input name="name" required class="form-control" ng-model="user.name"
+        placeholder="Name">
+        <div class="alert alert-danger" ng-show="userForm.name.$error.required && userForm.name.$dirty">{{validations.name.message}}
+  		</div>
+    </div>
+
+    <!-- <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input name="email" required class="form-control" ng-model="user.email"
+          placeholder="Email">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input name="username" required class="form-control" ng-model="user.username"
+        placeholder="Username">
+    </div> -->
+
+    <button type="submit" ng-click="addUser(user)" class="btn btn-default pull-right">
+      Save
+    </button>
+
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+

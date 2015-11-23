@@ -1,0 +1,55 @@
+<a href="#/dashboard">Home</a> | <a href="#/" ng-click="test()">logout</a>
+
+<div class="row">
+	<div class="col-md-12" ng-repeat="topic in all_topics" ng-if="topic._id == topic_id">
+		<h4>{{topic.topic_name}}</h4>
+		<p>{{topic.description}}</p>
+		<p><iframe src="//api.apiembed.com/?source=https://apiembed.com/sample.json&targets=shell:curl,node:unirest,java:unirest,python:requests,php:curl,ruby:native,objc:nsurlsession,go:native" frameborder="0" scrolling="no" width="100%" height="500px" seamless></iframe></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="col-md-4">
+			<a href="">edit</a> | <a href="">share</a>
+		</div>
+		<div class="col-md-4">
+			<p>last edited:</p>
+		</div> 
+		<div class="col-md-4">
+			<a href="">Post an answer</a>
+			<a href="#/recap"><button type="button" class="btn btn-primary btn-lg outline pull-right">Dojo Recap</button></a>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<h4>Post your answer here...</h4>
+		<form class="form-group">
+			<label for="content"></label>
+			<textarea class="form-control" rows="5" id="content" ng-model="newPost.content"></textarea>
+			<button type="submit" ng-click="addPost(newPost)" class="btn btn-default pull-right">Post</button>
+		</form>
+	</div>
+</div>
+
+<div class="row">
+	<div ng-repeat="post in all_posts">
+		<div class="col-md-12" style="border-top: 1px solid; margin-top:25px;">
+			<div class="col-md-8">
+				<h5><a href="">{{post._user.name}}</a> : {{post.content}} - postid {{post._id}}</h5>
+				<p ng-repeat="vote in post.votes | filter: query as x"></p>
+				pnumber of upvotes {{x.length}}
+			</div>
+			<div class="col-md-4">
+				<button type="submit" ng-click="upVote(post._id)" class="btn btn-default pull-right">Upvote</button>
+				<button type="submit" class="btn btn-default pull-right">Downvote</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+

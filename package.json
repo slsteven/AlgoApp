@@ -1,0 +1,11 @@
+{
+  "name": "discussion_board",
+  "description": "create topics, leave comments and posts. upvote or downvote. ",
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "ejs": "1.0.0",
+    "express": "~4.10.0",
+    "mongoose": "^4.1.1",
+    "mongoose-validator": "^1.2.4"
+  }
+}

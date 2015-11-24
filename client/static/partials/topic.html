@@ -53,10 +53,10 @@
 		</div>
 	</div>
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-8 col-md-offset-1">
 		<form>
 			<p>{{post._id}}</p>
-			<input type="text" ng-model="addNew.comment">
+			<textarea name="" id="" cols="30" rows="5" class="form-control" ng-model="addNew.comment"></textarea>
 			<input type="submit" value="add comment" ng-click="addComment(post._id)">
 		</form>
 	</div>

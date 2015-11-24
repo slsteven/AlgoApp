@@ -36,21 +36,39 @@ module.exports = (function(){
 		getProgress : function(req,res){
 			console.log(req.params);
 			// //preparing output array
-			// var output = [{category: "Strings"},{category:"Arrays"},{category:"Search"},{category:"Arrays"},{category:"Recursion"}];
+			var output = [{category: "Strings", completed:[]},{category:"Arrays", completed:[]},{category:"Search", completed:[]},{category:"Lists", completed:[]},{category:"Recursion", completed:[]}];
 
 			User.find({_id: req.params.id},function (err, result){
 				if(err){
 					console.log("Could not find progress of user")
 					res.json(err)
 				}else{
-					console.log("User progress found")
-					console.log(result)
+					console.log("User progress found", result)
+	
 					//repackage results for front-end in the following format:
-					// for(var i = 0;i<results[0].length;i++){
-						
-					// }
+					for(var i = 0;i<result[0].algorithms.length;i++){
+						switch (results[0].algorithms[i].category){
+							case "strings":
+								output[0].completed.push(results[0].algorithms[i]);
+								break;
+							case "arrays":
+								output[1].completed.push(results[0].algorithms[i]);
+								break;	
+							case "search":
+								output[2].completed.push(results[0].algorithms[i]);
+								break;
+							case "lists":
+								output[3].completed.push(results[0].algorithms[i]);
+								break;
+							case "recursion":
+								output[4].completed.push(results[0].algorithms[i]);
+								break;
+							default:
+								break;
+						}	
+					}
 
-					res.json(result)
+					res.json(output)
 				}
 			})
 		}

@@ -9,6 +9,10 @@ myApp.factory('UserFactory', function ($http){
 			
 		})
 	}
+
+	factory.getName = function (callback){
+		callback(userInfo)
+	}
 /************************************************************/
 
 	
@@ -51,11 +55,7 @@ myApp.controller('UserController', function ($scope, $location, UserFactory, $ro
 		});
 	}
 /**********************************************************/
-	$scope.getProgress = function(){
-		UserFactory.getProgress(function(){
-			console.log('Inside getprogress')
-		})
-	}
+
 /**********************************************************/
 })
 

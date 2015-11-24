@@ -1,38 +1,19 @@
 
 <h1>Profile</h1>
-<h3>[Name]</h3>
+<h3 ng-bind='userInfo.name'></h3>
 
+<h2>Algorithm Progress</h2>
+<div ng-repeat='category in progress'>
 
-<div id="algo-progress">
-	<h2>Algorithm Progress</h2>
-	<h3>Strings</h3>
-	<div class="progress" id='srings'>
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">
-	    50%
-	  </div>
-	</div>
-	<h3>Arrays</h3>
-	<div class="progress" id='arrays'>
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">
-	    50%
-	  </div>
-	</div>
-	<h3>Search</h3>
-	<div class="progress" id='search'>
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">
-	    50%
-	  </div>
-	</div>
-	<h3>Arrays</h3>
-	<div class="progress" id='arrays'>
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">
-	    50%
-	  </div>
-	</div>
-	<h3>Recursion</h3>
-	<div class="progress" id='recursion'>
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">
-	    50%
-	  </div>
+	<h3 ng-bind='category.category' class='col-md'></h3>
+	<div class="progress">
+		<div class="progress-bar" role="progressbar" aria-valuenow="70"
+		aria-valuemin="0" aria-valuemax="100" style="width:70%">
+			<span class="">70% Complete</span>
+		</div>
 	</div>
 </div>
+
+
+<!-- 
+	<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%; min-width:2em">50%</div> -->

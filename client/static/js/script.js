@@ -20,7 +20,7 @@ myApp.config(function ($routeProvider, $locationProvider){
                   templateUrl: './static/partials/new_algo.html',
                   css: './static/css/style.css'
             })
-            .when('/recap', {
+            .when('/temp', {
                   templateUrl: './static/partials/recap.html',
                   controller: 'RecapController',
                   css: './static/css/style.css'

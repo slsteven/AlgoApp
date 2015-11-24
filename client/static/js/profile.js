@@ -40,11 +40,12 @@ myApp.controller('ProfileController', function ($scope, $location, TopicFactory,
 
 	$scope.logged_in_user = $rootScope.user;
 	console.log("logged in user for profile controller:", $scope.logged_in_user)
-	$scope.getTopicArrays = function(){
-		ProfileFactory.getTopicArrays(function(data){
-			$scope.all_array_algos = data;
-		})
-	}
+	
+	ProfileFactory.getTopicArrays(function(data){
+		$scope.all_array_algos = data;
+		console.log("user profile front end controller get arrays:", data);
+	})
+	
 
 
 	$scope.getProgress()

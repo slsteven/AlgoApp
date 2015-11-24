@@ -33,7 +33,7 @@ module.exports = function(app){
 		users.getProgress(req,res)
 	})
 	app.get('/topic/arrays', function(req, res){
-		users.arrayTopic(req,res);
+		users.arrayTopic(req,res)
 	})
 	//routes for comments
 	//id refers to post_id

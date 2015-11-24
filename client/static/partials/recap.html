@@ -27,3 +27,27 @@
 	</div>
 </div>
 </div>
+	<div class="col-md-12" style="border-top: 1px solid; margin-top:25px;">
+		<div class="col-md-8 col-md-offset-1 test">
+			<div class="panel-heading">
+				<ul class="nav nav-tabs">
+					<li><a href="" data-toggle="tab">Javascript</a></li>
+					<li class="active"><a href="#tab1default" data-toggle="tab">Big-O</a></li>
+					<li><a href="" data-toggle="tab">Java</a></li>
+					<li><a href="" data-toggle="tab">PHP</a></li>
+					<li><a href="" data-toggle="tab">Objective-C</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="" data-toggle="tab">Default 4</a></li>
+							<li><a href="" data-toggle="tab">Default 5</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<h4 class="post_markdown" ng-bind-html="post.content"></h4>
+			<p ng-repeat="vote in post.votes | filter: query as x"></p>
+			<!-- pnumber of upvotes {{x.length}} -->
+		</div>
+	</div>
+<img style="margin-left:125px" src="http://www.daveperrett.com/images/articles/2010-12-07-comp-sci-101-big-o-notation/Time_Complexity.png" alt="">

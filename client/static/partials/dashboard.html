@@ -1,30 +1,23 @@
-<!-- <a href="#/user/{{user[0]._id}}">User Profile</a> | <a href="">Lets do an Algo!</a> | <a href="">Login</a> -->
 
 <p>rootscope (session):{{logged_in_user._id}}</p>
 <!-- <div ng-if="logged_in_user._id"> -->
-	<button ng-click="logout()">Logout</button>
 	<!-- <h1>Homepage after login</h1> -->
 	<h1>Welcome, {{logged_in_user.name}}!</h1>
-	<h1>Welcome</h1>
 	<br>
 
 <hr>
-
-	<div class="col-md-12">
-		<form class="form-group">
-			<label for="search">Search</label>
-			<input type="text" class="form-control" id="search">
-		</form>
-	</div>
-
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
+			<form class="form-group">
+				<label for="search">Search</label>
+				<input type="text" class="form-control" id="search">
+			</form>
+
 			<table class="table">
 				<thead>
 					<th>Week</th>
-					<th>Topic</th>
-					<th>Difficulty</th>
-					<th>Posts</th>
+					<th>Algo Topic</th>
+					<th># of Posts</th>
 				</thead>
 				<tbody>
 					<tr ng-repeat="topic in all_topics">
@@ -35,19 +28,7 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-8 col-md-1-offset">
-			<a href="#/new/algo"><button type="button" class=" btn btn-primary btn-lg outline pull-left">Post new algo</button></a>
-		</div>
-	</div>
-</div> <!-- end of ngif rootscope -->
-<br>
-<br>
-<!-- <p ng-if="!logged_in_user">Please log in</p> -->
-<div class="row">
-	<div class="col-md-12">
 		<div class="col-md-6">
 			<h3>Add new algorithm</h3>
 			<form class="form-group">
@@ -68,13 +49,13 @@
 				  </select>
 				<br>
 				<div class="reg_button">
-					<button type="submit" ng-click="addTopic(topic)">Submit</button>
+					<button type="submit" ng-click="addTopic(topic)" class=" btn btn-primary btn-lg outline pull-left">Post new algo</button></a>
 				</div>
 			</form>
 		</div>
 	</div>
-	</div>
 
+	
 
 
 

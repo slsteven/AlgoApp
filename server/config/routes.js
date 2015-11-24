@@ -2,6 +2,7 @@ var users = require('./../controllers/users.js')
 var topics = require('./../controllers/topics.js')
 var posts = require('./../controllers/posts.js')
 
+
 module.exports = function(app){
 	app.post('/user/new', function(req, res){
 		users.new(req, res);
@@ -26,5 +27,9 @@ module.exports = function(app){
 	})
 	app.get('votes', function(req, res){
 		posts.allvotes(req, res);
+	})
+	/*****************************************************/
+	app.get('/user/:id/',function (req,res){
+		users.getProgress(req,res)
 	})
 }

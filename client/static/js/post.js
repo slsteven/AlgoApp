@@ -9,7 +9,6 @@ myApp.factory('PostFactory', function($http){
 	}
 	//:id == id of topic
 	factory.getPosts = function(post, callback){
-		console.log(post)
 		$http.get('/posts/'+post).success(function(output){
 			console.log("getposts on success", output)
 			callback(output)
@@ -75,7 +74,13 @@ myApp.controller('PostController', function ($scope, $sce, $compile, VoteFactory
 			name: $scope.logged_in_user.name
 		}
 		PostFactory.newPost($scope.new_post, function(){
-			PostFactory.getPosts(function(data){
+			console.log("add a new post, topic id", $scope.topic_id)
+			PostFactory.getPosts($scope.topic_id, function(data){
+				var formatted_post = []
+				for(var i = 0; i<data.length; i++){
+					// console.log("obj", data[i].content)
+					data[i].content = $sce.trustAsHtml(data[i].content)
+				}
 				$scope.all_posts = data;
 			})
 		})

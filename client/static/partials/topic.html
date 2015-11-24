@@ -1,24 +1,23 @@
 <a href="#/dashboard">Home</a> | <a href="#/" ng-click="test()">logout</a>
 
 <div class="row">
-	<div class="col-md-12" ng-repeat="topic in all_topics" ng-if="topic._id == topic_id">
-		<h4>{{topic.topic_name}}</h4>
+	<div class="col-md-10 col-md-offset-1 topic_desc" ng-repeat="topic in all_topics" ng-if="topic._id == topic_id">
+		<h2>{{topic.topic_name}}</h2>
 		<p>{{topic.description}}</p>
-		<p><iframe src="//api.apiembed.com/?source=https://apiembed.com/sample.json&targets=shell:curl,node:unirest,java:unirest,python:requests,php:curl,ruby:native,objc:nsurlsession,go:native" frameborder="0" scrolling="no" width="100%" height="500px" seamless></iframe></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit provident autem nulla enim eveniet ad itaque aperiam, perspiciatis mollitia, dignissimos ducimus animi quidem illum, sint dolore, a soluta aliquam ab.</p>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-10 col-md-offset-1">
 		<div class="col-md-4">
 			<a href="">edit</a> | <a href="">share</a>
 		</div>
 		<div class="col-md-4">
 			<p>last edited:</p>
 		</div> 
-		<div class="col-md-4">
-			<a href="">Post an answer</a>
-			<a href="#/recap"><button type="button" class="btn btn-primary btn-lg outline pull-right">Dojo Recap</button></a>
+		<div class="col-md-4 recap">
+			<a href="#/recap"><button type="button" class=" btn btn-primary btn-lg outline pull-right">Dojo Recap</button></a>
 		</div>
 	</div>
 </div>
@@ -39,24 +38,47 @@
 <div class="row">
 	<div ng-repeat="post in all_posts">
 	<div class="col-md-12" style="border-top: 1px solid; margin-top:25px;">
-		<div class="col-md-8 test">
-			<h5><a href="">{{post._user.name}}</a></h5>
-			<h4 ng-bind-html="post.content"></h4>
+		<div class="col-md-8 col-md-offset-1 test">
+
+<div class="panel-heading">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#tab1default" data-toggle="tab">Javascript</a></li>
+<li><a href="" data-toggle="tab">Python</a></li>
+<li><a href="" data-toggle="tab">Java</a></li>
+<li><a href="" data-toggle="tab">PHP</a></li>
+<li><a href="" data-toggle="tab">Objective-C</a></li>
+<li class="dropdown">
+<a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+<ul class="dropdown-menu" role="menu">
+<li><a href="" data-toggle="tab">Default 4</a></li>
+<li><a href="" data-toggle="tab">Default 5</a></li>
+</ul>
+</li>
+</ul>
+</div>
+			<h4 class="post_markdown" ng-bind-html="post.content"></h4>
 			<p ng-repeat="vote in post.votes | filter: query as x"></p>
-			pnumber of upvotes {{x.length}}
+			<!-- pnumber of upvotes {{x.length}} -->
 		</div>
 
 
-		<div class="col-md-4">
-			<button type="submit" ng-click="upVote(post._id)" class="btn btn-default pull-right">Upvote</button>
-			<button type="submit" class="btn btn-default pull-right">Downvote</button>
+		<div class="col-md-3 votes">
+			<button type="button" ng-click="upVote(post._id)" class="btn btn-default btn-lg">
+			  <span class="glyphicon glyphicon-hand-up" aria-hidden="true"></span> Upvote
+			</button>
+			<button type="button" ng-click="upVote(post._id)" class="btn btn-default btn-lg">
+			  <span class="glyphicon glyphicon-hand-down" aria-hidden="true"></span> Downvote
+			</button>
+			<p><a href="">User Name: {{post._user.name}}</a></p>
+			<p>Date Created: Jan 10, 2015</p>
+			<p><a href="">Share</a> | <a href="">Edit</a></p>
 		</div>
 	</div>
 <div class="row">
-	<div class="col-md-8 col-md-offset-1">
+	<div class="col-md-7 col-md-offset-1">
 		<form>
-			<p>{{post._id}}</p>
-			<textarea name="" id="" cols="30" rows="5" class="form-control" ng-model="addNew.comment"></textarea>
+			<!-- <p>{{post._id}}</p> -->
+			<textarea name="" id="" cols="30" rows="3" class="form-control" ng-model="addNew.comment"></textarea>
 			<input type="submit" value="add comment" ng-click="addComment(post._id)">
 		</form>
 	</div>
@@ -67,6 +89,4 @@
 
 <hr>
 <!-- making a comment box for a post -->
-
-
 

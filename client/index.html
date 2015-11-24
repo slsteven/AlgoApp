@@ -18,12 +18,26 @@
 	<script src="./static/js/post.js"></script>
 	<script src="./static/js/profile.js"></script>
 	<script src="./static/js/comment.js"></script>
+	<script src="./static/js/recap.js"></script>
 	<link rel="stylesheet" href="./static/css/style.css">
 	<script src="https://cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
 </head>
 	<body>
+	
 		<div class="container">
-			<div ng-view=""></div>
+			<nav class="navbar navbar-default navbar-fixed-top">
+		        <div class="container-fluid">
+		            <div class="navbar-header">
+		                <a class="navbar-brand" href="#/dashboard">Algos</a>
+		                <ul class="nav navbar-nav">
+		                    <li><a href="#/user/._id">User Profile</a></li>
+		                    <li><a href="#/dashboard">Home</a></li>
+		                    <li><a href="/">Logout</a></li>
+		                </ul>
+		            </div>
+		        </div>
+		    </nav>
+			<div class="partials" ng-view=""></div>
 		</div>
 		<script src="./bower_components/ckeditor/ckeditor.js"></script>
 		<!-- <script src="./bower_components/ng-ckeditor/angularjs/plugins/ng-ckeditor/ng-ckeditor-1.0.1.js"></script> -->

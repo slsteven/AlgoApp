@@ -9,11 +9,17 @@ myApp.factory('ProfileFactory', function ($http){
 			
 		})
 	}
+
+	factory.getTopicArrays = function(callback){
+		$http.get('/topic/arrays').success(function(output){
+			callback(output);
+		})
+	}
 	return factory;
 })
 
 
-myApp.controller('ProfileController', function ($scope, $location, ProfileFactory, $rootScope, $routeParams, UserFactory){
+myApp.controller('ProfileController', function ($scope, $location, TopicFactory, ProfileFactory, $rootScope, $routeParams, UserFactory){
 	console.log('PROFILE controller')
 	console.log($routeParams)
 /**********************************************************/
@@ -29,6 +35,14 @@ myApp.controller('ProfileController', function ($scope, $location, ProfileFactor
 	$scope.getName = function(){
 		UserFactory.getName(function (userInfo){
 			$scope.userInfo = userInfo
+		})
+	}
+
+	$scope.logged_in_user = $rootScope.user;
+	console.log("logged in user for profile controller:", $scope.logged_in_user)
+	$scope.getTopicArrays = function(){
+		ProfileFactory.getTopicArrays(function(data){
+			$scope.all_array_algos = data;
 		})
 	}
 

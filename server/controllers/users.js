@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User')
+var Topic = mongoose.model('Topic')
+
 
 module.exports = (function(){
 	return {
@@ -69,6 +71,17 @@ module.exports = (function(){
 					}
 
 					res.json(output)
+				}
+			})
+		},
+		arrayTopic: function(req, res){
+			Topic.find({category: "Arrays"}, function(err, result){
+				if(err){
+					console.log("couldnt find arrays")
+				}
+				else{
+					console.log("topics for Arrays:", result)
+					res.json(result);
 				}
 			})
 		}

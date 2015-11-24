@@ -1,7 +1,7 @@
 var users = require('./../controllers/users.js')
 var topics = require('./../controllers/topics.js')
 var posts = require('./../controllers/posts.js')
-
+var comments = require('./../controllers/comments.js')
 
 module.exports = function(app){
 	app.post('/user/new', function(req, res){
@@ -28,8 +28,19 @@ module.exports = function(app){
 	app.get('votes', function(req, res){
 		posts.allvotes(req, res);
 	})
-	/*****************************************************/
-	app.get('/user/:id/',function (req,res){
+	//routes for user profile
+	app.get('/user/:id/', function (req,res){
 		users.getProgress(req,res)
+	})
+	app.get('/topic/arrays', function(req, res){
+		users.arrayTopic(req,res);
+	})
+	//routes for comments
+	//id refers to post_id
+	app.post('/comments/:id', function(req, res){
+		comments.add(req, res);
+	})
+	app.get('/comments/:id', function(req, res) {
+		comments.all(req, res);
 	})
 }

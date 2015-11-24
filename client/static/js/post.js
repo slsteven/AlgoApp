@@ -39,7 +39,7 @@ myApp.factory('VoteFactory', function($http){
 	return factory;
 })
 
-myApp.controller('PostController', function ($scope, $sce, $compile, VoteFactory, PostFactory, $rootScope, $routeParams, TopicFactory){
+myApp.controller('PostController', function ($scope, $sce, $compile, CommentFactory, VoteFactory, PostFactory, $rootScope, $routeParams, TopicFactory){
 	//checked for logged in user
 	$scope.logged_in_user = $rootScope.user
 	//get topic id
@@ -100,14 +100,25 @@ myApp.controller('PostController', function ($scope, $sce, $compile, VoteFactory
 
 	// COMMENTS
 
-	$scope.addComment = function(postid){
+	$scope.addComment = function(postid, comment){
+		console.log("content:", $scope.logged_in_user._id, comment.comment)
+
 		$scope.comment_repack = {
-			user_id: $scope.logged_in_user.user_id,
-			content: $scope.addNew.comment,
+			user_id: $scope.logged_in_user._id,
+			content: comment.comment,
 			post_id: postid
 		}
-		CommentFactory.addComment($scope.comment_repack)
+
+		CommentFactory.newComment($scope.comment_repack, function(){
+			CommentFactory.getComments($scope.topic_id, function(data){
+				$scope.all_comments = data;
+			})
+		})
 	}
+
+	CommentFactory.getComments($scope.topic_id, function(data){
+		$scope.all_comments = data;
+	})
 
 
 })

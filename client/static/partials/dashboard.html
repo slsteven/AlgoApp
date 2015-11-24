@@ -1,29 +1,12 @@
-<a href="#/user/{{user[0]._id}}">User Profile</a> | <a href="">Lets do an Algo!</a> | <a href="">Login</a>
+<!-- <a href="#/user/{{user[0]._id}}">User Profile</a> | <a href="">Lets do an Algo!</a> | <a href="">Login</a> -->
 
 <p>rootscope (session):{{logged_in_user._id}}</p>
 <!-- <div ng-if="logged_in_user._id"> -->
 	<button ng-click="logout()">Logout</button>
-	<h1>Homepage after login</h1>
+	<!-- <h1>Homepage after login</h1> -->
 	<h1>Welcome, {{logged_in_user.name}}!</h1>
-
+	<h1>Welcome</h1>
 	<br>
-
-
-	
-	<ul>
-		<li><a href="">Week 1 - Strings</a></li>
-		<li><a href="">Week 2 - Arrays</a></li>
-		<li><a href="">Week 3 - Linked Lists</a></li>
-		<li><a href="">Week 4 - Searches</a></li>
-		<li><a href="">Week 5 - Searches</a></li>
-		<li><a href="">Week 6 - Searches</a></li>
-		<li><a href="">Week 1 - Strings</a></li>
-		<li><a href="">Week 2 - Arrays</a></li>
-		<li><a href="">Week 3 - Linked Lists</a></li>
-		<li><a href="">Week 4 - Searches</a></li>
-		<li><a href="">Week 5 - Searches</a></li>
-		<li><a href="">Week 6 - Searches</a></li>
-	</ul>
 
 <hr>
 
@@ -44,25 +27,6 @@
 					<th>Posts</th>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Week 1</td>
-						<td>Sorts</td>
-						<td>Medium</td>
-						<td>Overview</td>
-					</tr>
-					<tr>
-						<td>Week 2</td>
-						<td>Arrays</td>
-						<td>Medium</td>
-						<td>Overview</td>
-					</tr>
-					<tr>
-						<td>Week 3</td>
-						<td>Fundamentals</td>
-						<td>Medium</td>
-						<td>Overview</td>
-					</tr>
-						
 					<tr ng-repeat="topic in all_topics">
 						<td>{{topic.category}}</td>
 						<td><a href="" ng-click="topicShow(topic._id)">{{topic.topic_name}}</a></td>
@@ -99,11 +63,13 @@
 				    <option>Strings</option>
 				    <option>Sorts</option>
 				    <option>Searches</option>
-				    <option>Data Structures</option>
+				    <option>Recursions</option>
 				    <option>Linked Lists</option>
 				  </select>
 				<br>
-				<button type="submit" ng-click="addTopic(topic)" class="reg_button">Submit</button>
+				<div class="reg_button">
+					<button type="submit" ng-click="addTopic(topic)">Submit</button>
+				</div>
 			</form>
 		</div>
 	</div>

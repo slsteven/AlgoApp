@@ -81,11 +81,20 @@
 /**************
    Reg
 ***************/
-.reg_button {
+.btn .reg_button {
   border: 1px solid;
-  background-color: grey;
+  background-color: black;
+}
+.partials {
+  margin-top: 50px;
 }
 
+.navbar {
+  padding-left:30px;
+}
+.nav li {
+  color: black;
+}
 /**************
    POST
 ***************/
@@ -95,10 +104,18 @@
 
 .topic_desc {
   background-color: whitesmoke;
+  padding-bottom: 10px;
+  border-bottom: 1px;
 }
 
 .topic_desc p{
   padding-top: 2px;
+}
+
+.topic_border {
+  border-bottom: 1px ridge black;
+  padding-top: 7px;
+  padding-bottom: 5px;
 }
 .post_markdown {
   border: 1px;

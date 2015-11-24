@@ -1,10 +1,9 @@
-<a href="#/dashboard">Home</a> | <a href="#/" ng-click="test()">logout</a>
+<!-- <a href="#/dashboard">Home</a> | <a href="#/" ng-click="test()">logout</a> -->
 
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 topic_desc" ng-repeat="topic in all_topics" ng-if="topic._id == topic_id">
 		<h2>{{topic.topic_name}}</h2>
-		<p>{{topic.description}}</p>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit provident autem nulla enim eveniet ad itaque aperiam, perspiciatis mollitia, dignissimos ducimus animi quidem illum, sint dolore, a soluta aliquam ab.</p>
+		<p class="topic_border">Problem: {{topic.description}}</p>
 	</div>
 </div>
 
@@ -39,23 +38,22 @@
 	<div ng-repeat="post in all_posts">
 	<div class="col-md-12" style="border-top: 1px solid; margin-top:25px;">
 		<div class="col-md-8 col-md-offset-1 test">
-
-<div class="panel-heading">
-<ul class="nav nav-tabs">
-<li class="active"><a href="#tab1default" data-toggle="tab">Javascript</a></li>
-<li><a href="" data-toggle="tab">Python</a></li>
-<li><a href="" data-toggle="tab">Java</a></li>
-<li><a href="" data-toggle="tab">PHP</a></li>
-<li><a href="" data-toggle="tab">Objective-C</a></li>
-<li class="dropdown">
-<a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-<ul class="dropdown-menu" role="menu">
-<li><a href="" data-toggle="tab">Default 4</a></li>
-<li><a href="" data-toggle="tab">Default 5</a></li>
-</ul>
-</li>
-</ul>
-</div>
+			<div class="panel-heading">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#tab1default" data-toggle="tab">Javascript</a></li>
+					<li><a href="" data-toggle="tab">Python</a></li>
+					<li><a href="" data-toggle="tab">Java</a></li>
+					<li><a href="" data-toggle="tab">PHP</a></li>
+					<li><a href="" data-toggle="tab">Objective-C</a></li>
+					<li class="dropdown">
+					<a href="#" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="" data-toggle="tab">Default 4</a></li>
+							<li><a href="" data-toggle="tab">Default 5</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 			<h4 class="post_markdown" ng-bind-html="post.content"></h4>
 			<p ng-repeat="vote in post.votes | filter: query as x"></p>
 			<!-- pnumber of upvotes {{x.length}} -->
@@ -77,12 +75,12 @@
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
 		<form>
-			<!-- <p>{{post._id}}</p> -->
-			<textarea name="" id="" cols="30" rows="3" class="form-control" ng-model="addNew.comment"></textarea>
-			<input type="submit" value="add comment" ng-click="addComment(post._id)">
+			<textarea name="" id="" cols="30" class="form-control" rows="3" ng-model="comment.comment"></textarea>
+			<input type="submit" value="add comment" ng-click="addComment(post._id, comment)">
 		</form>
 	</div>
 	</div>
+</div>
 </div>
 
 

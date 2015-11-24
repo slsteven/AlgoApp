@@ -22,6 +22,7 @@ myApp.config(function ($routeProvider, $locationProvider){
             })
             .when('/recap', {
                   templateUrl: './static/partials/recap.html',
+                  controller: 'RecapController',
                   css: './static/css/style.css'
             })
             .when('/user/:id', {

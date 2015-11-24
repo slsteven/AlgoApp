@@ -20,6 +20,7 @@ var UserSchema = new mongoose.Schema({
   topics: [{type: Schema.Types.ObjectId, ref: 'Topic'}],
   posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
   votes: [{type: Schema.Types.ObjectId, ref: 'Vote'}],
+  comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
   algorithms: [],
 });
 var User = mongoose.model('User', UserSchema);

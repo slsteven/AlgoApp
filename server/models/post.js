@@ -4,7 +4,8 @@ var PostSchema = new mongoose.Schema({
 	content: String,
 	_user: {type: Schema.Types.ObjectId, ref: 'User'},
 	_topic: {type: Schema.Types.ObjectId, ref: 'Topic'},
-	votes: [{type: Schema.Types.ObjectId, ref: 'Vote'}]
+	votes: [{type: Schema.Types.ObjectId, ref: 'Vote'}],
+	comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
 });
 var Post = mongoose.model('Post', PostSchema);
 

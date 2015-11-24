@@ -13,11 +13,7 @@ myApp.factory('UserFactory', function ($http){
 	factory.getName = function (callback){
 		callback(userInfo)
 	}
-/************************************************************/
 
-	
-
-/************************************************************/
 
 	return factory;
 })

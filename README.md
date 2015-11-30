@@ -1,4 +1,4 @@
-# algorithmApp
+# AlgoApp
 Algo App - free database of algorithms such as arrays, strings, sorts, and data structures. Solutions to answers are posted by a community. 
 
 Technology: MongoDB, Node, Express, Angular JS, ckeditor, boostrapUI

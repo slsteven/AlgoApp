@@ -1,5 +1,5 @@
 {
-  "name": "discussion_board",
+  "name": "algoapp",
   "description": "create topics, leave comments and posts. upvote or downvote. ",
   "dependencies": {
     "body-parser": "^1.13.1",
@@ -8,5 +8,24 @@
     "mongoose": "^4.1.1",
     "mongoose-validator": "^1.2.4",
     "url": "^0.11.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slsteven/AlgoApp.git"
+  },
+  "keywords": [
+    "heroku"
+  ],
+  "author": "steven lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/slsteven/AlgoApp/issues"
+  },
+  "homepage": "https://github.com/slsteven/AlgoApp#readme"
 }

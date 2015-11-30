@@ -117,6 +117,7 @@ myApp.controller('PostController', function ($scope, $sce, $compile, CommentFact
 	}
 
 	CommentFactory.getComments($scope.topic_id, function(data){
+		console.log("show all comments callback:", data);
 		$scope.all_comments = data;
 	})
 

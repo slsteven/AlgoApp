@@ -4,7 +4,6 @@ var Topic = mongoose.model('Topic')
 module.exports = (function(){
 	return {
 		new: function(req, res){
-			console.log("inside topics backend controller new method");
 			var topic = new Topic ({
 				topic_name: req.body.topic.name,
 				description: req.body.topic.description,

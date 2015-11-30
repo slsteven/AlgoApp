@@ -53,7 +53,7 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<table class="table">
 				<thead>
 					<th>Category</th>
@@ -66,7 +66,49 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>		
+		</div>
+		<div class="col-md-3">
+			<table class="table">
+				<thead>
+					<th>Category</th>
+					<th>Completed Algos</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="string in all_string_algos">
+						<td>{{string.category}}</td>
+						<td><div class="checkbox"><label><input type="checkbox" value="">{{string.topic_name}}</label></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<table class="table">
+				<thead>
+					<th>Category</th>
+					<th>Completed Algos</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="data in all_data_structures_algos">
+						<td>{{data.category}}</td>
+						<td><div class="checkbox"><label><input type="checkbox" value="">{{data.topic_name}}</label></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<table class="table">
+				<thead>
+					<th>Category</th>
+					<th>Completed Algos</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="sorts in all_sorts_algos">
+						<td>{{sorts.category}}</td>
+						<td><div class="checkbox"><label><input type="checkbox" value="">{{sorts.topic_name}}</label></div></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>									
 	</div>
 	
 </div>

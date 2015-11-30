@@ -7,9 +7,9 @@ myApp.factory('CommentFactory', function($http){
 			callback()
 		})
 	}
-	factory.getComments = function(id, callback){
-		$http.get('/comments/' + id).success(function(output){
-			console.log("get cmments", id, output)
+	factory.getComments = function(topic_id, callback){
+		$http.get('/comments/' + topic_id).success(function(output){
+			console.log("get cmments", topic_id, output)
 			callback(output)
 		})
 	}

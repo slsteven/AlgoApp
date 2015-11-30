@@ -6,10 +6,9 @@ var Vote = mongoose.model('Vote');
 module.exports = (function(){
 	return {
 		all: function(req, res){
-			console.log("inside backend controller for all posts:", req.params)
 			Topic.findOne({_id: req.params.id}).populate('posts').exec(function(err, topic){
-				Post.find({_topic: req.params.id}).populate('_user').populate('votes').exec(function(err, posts){
-				console.log("topic:", posts)
+				Post.find({_topic: req.params.id}).populate('_user').populate('votes').populate('comments').exec(function(err, posts){
+					console.log("inside backend controller for all posts:", posts)
 				res.json(posts)
 				})
 			})

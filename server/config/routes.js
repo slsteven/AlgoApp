@@ -35,6 +35,15 @@ module.exports = function(app){
 	app.get('/topic/arrays', function(req, res){
 		users.arrayTopic(req,res)
 	})
+	app.get('/topic/strings', function(req, res){
+		users.stringTopic(req, res)
+	})
+	app.get('/topic/data_structures', function(req, res){
+		users.data_structuresTopic(req, res)
+	})
+	app.get('/topic/sorts', function(req, res){
+		users.sortsTopic(req, res)
+	})
 	//routes for comments
 	//id refers to post_id
 	app.post('/comments/:id', function(req, res){

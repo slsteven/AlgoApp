@@ -7,14 +7,9 @@ var Comment = mongoose.model('Comment')
 module.exports = (function(){
 	return {
 		all: function(req, res){
-			console.log("inside backend controller for all posts:", req.params)
 			Topic.findOne({_id: req.params.id}).populate('posts').exec(function(err, topic){
-				Post.find({_topic: req.params.id}).populate('_user').populate('votes').exec(function(err, posts){
-				// console.log("topic:", posts)
-					Comment.find({_post: req.params.id}).populate('comments').exec(function(err, comments){
-						console.log("topic:", comments)
-						res.json(comments)
-					})
+				Post.find({_topic: req.params.id}).exec(function(err, posts){
+					// console.log("inside backend controller for all posts:", posts.comments)
 				})
 			})
 		},

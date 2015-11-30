@@ -35,7 +35,7 @@
 </div>
 
 <div class="row">
-	<div ng-repeat="post in all_posts">
+<div ng-repeat="post in all_posts">
 	<div class="col-md-12" style="border-top: 1px solid; margin-top:25px;">
 		<div class="col-md-8 col-md-offset-1 test">
 			<div class="panel-heading">
@@ -72,19 +72,34 @@
 			<p><a href="">Share</a> | <a href="">Edit</a></p>
 		</div>
 	</div>
+
 <div class="row">
 	<div class="col-md-7 col-md-offset-1">
 		<form>
 			<textarea name="" id="" cols="30" class="form-control" rows="3" ng-model="comment.comment"></textarea>
 			<input type="submit" value="add comment" ng-click="addComment(post._id, comment)">
 		</form>
-	</div>
+
+		<div class="commentbox">
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th>Comments</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="comment in post.comments">
+			        <td>{{comment.content}}</td>
+			      </tr>
+			    </tbody>
+			  </table>
+		</div>
 	</div>
 </div>
 </div>
+</div>
 
-
-
+<br>
+<br>
 <hr>
-<!-- making a comment box for a post -->
 

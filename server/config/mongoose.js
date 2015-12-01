@@ -7,7 +7,7 @@ var fs = require('fs');
 if (process.env.NODE_ENV === 'development') {
   mongoose.connect('mongodb://localhost/discussion_board');`
 } else {
-  mongoose.connect('mongodb://heroku_5g6smnpw:5mdh8hd5scp7hkpnn0ve0v31g8@ds059524.mongolab.com:59524/heroku_5g6smnpw');`
+  mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds059524.mongolab.com:59524/heroku_5g6smnpw');`
 }
 
 // specify the path to all of the models

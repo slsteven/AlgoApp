@@ -3,11 +3,10 @@ var mongoose = require('mongoose');
 var fs = require('fs');
 // connect to the database
 
-// process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // mongoose.connect('mongodb://localhost/discussion_board')
 
 if (process.env.NODE_ENV == 'development') {
-	process.env.NODE_ENV = process.env.NODE_ENV || 'development'
   	mongoose.connect('mongodb://localhost/discussion_board');`
 } else {
   mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds059524.mongolab.com:59524/heroku_5g6smnpw');`

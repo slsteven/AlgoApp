@@ -21,6 +21,9 @@ routes_setter(app);
 
 
 // tell the express app to listen on port 8000
-app.listen(8000, function() {
- console.log("listening on port 8000");
-})
+// app.listen(8000, function() {
+//  console.log("listening on port 8000");
+// })
+
+
+app.listen(process.env.PORT || 5000)

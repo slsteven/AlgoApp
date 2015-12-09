@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ckeditor']);
+var myApp = angular.module('myApp', ['ngRoute', 'ckeditor', 'ui.tinymce', 'ui.bootstrap']);
 myApp.config(function ($routeProvider, $locationProvider){
       $routeProvider
             .when('/', {
@@ -16,7 +16,7 @@ myApp.config(function ($routeProvider, $locationProvider){
                   controller: 'PostController',
                   css: './static/css/style.css'
             })
-            .when('/new/algo', { 
+            .when('/new/algo', {
                   templateUrl: './static/partials/new_algo.html',
                   css: './static/css/style.css'
             })
@@ -29,6 +29,10 @@ myApp.config(function ($routeProvider, $locationProvider){
                   templateUrl: './static/partials/profile.html',
                   css: './static/css/style.css',
                   controller: 'ProfileController'
+            })
+            .when('/test', {
+              controller: 'TestController',
+              templateUrl: './static/partials/test.html',
             })
             .otherwise({redirectTo: '/'});
 });

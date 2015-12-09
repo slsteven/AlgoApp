@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var validate = require('mongoose-validator');
+var bcrypt   = require('bcrypt-nodejs');
 var Schema = mongoose.Schema;
+
 var nameValidator = [
   validate({
     validator: 'isLength',
@@ -16,13 +18,54 @@ var nameValidator = [
 
 
 var UserSchema = new mongoose.Schema({
-	name: {type: String, required: true, validate: nameValidator},
+	name: {type: String },
   topics: [{type: Schema.Types.ObjectId, ref: 'Topic'}],
   posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
   votes: [{type: Schema.Types.ObjectId, ref: 'Vote'}],
   comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
   algorithms: [],
-});
-var User = mongoose.model('User', UserSchema);
 
-// UserSchema.path("name").required(true, "name can not be blank");
+  local: {
+    email: String,
+    password: String,
+  },
+  facebook: {
+    id: String,
+    token: String,
+    email: String,
+    name: String
+  }
+});
+
+
+//methods =============================
+//generate hash
+UserSchema.methods.generateHash = function(password){
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+};
+
+// checking if password is valid
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.local.password);
+};
+
+
+module.exports = mongoose.model('User', UserSchema);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

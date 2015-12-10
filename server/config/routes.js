@@ -20,11 +20,64 @@ module.exports = function(app, passport){
 	// 	failureFlash: true
 	// }))
 
+	app.get('/home', function(req, res){
+		 console.log("redirect bc of failure",req.errors.message)
+
+	})
+
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/dashboard', // redirect to the secure profile section
-    failureRedirect : '/dashboard', // redirect back to the signup page if there is an error
+		successRedirect : '/dashboardSignup', // redirect to the secure profile section
+    failureRedirect : '/home', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 	}));
+
+
+	app.get('/dashboardSignup', function(req, res){
+  	// console.log("req:", req.user);
+  	users.dashboardSignup(req, res);
+  })
+
+
+	// process the login form
+  app.post('/login', passport.authenticate('local-login', {
+			successRedirect : '/dashboardLogin', // redirect to the secure profile section
+    	failureRedirect : '/home', // redirect back to the signup page if there is an error
+    	failureFlash : true // allow flash messages
+  }));
+
+  app.get('/dashboardLogin', function(req, res){
+  	console.log("routes login method", req.user);
+  	users.findLastUser(req, res);
+  })
+
+   // route for showing the profile page
+    // app.get('/profile', isLoggedIn, function(req, res) {
+    //     res.render('profile.ejs', {
+    //         user : req.user // get the user out of session and pass to template
+    //     });
+    // });
+
+  // =====================================
+  // FACEBOOK ROUTES =====================
+  // =====================================
+  // route for facebook authentication and login
+  app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+  // console.log(passport.authenticate('facebook', { scope : 'email' }))
+  // handle the callback after facebook has authenticated the user
+  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  		failureRedirect : '/dashboard'}),
+  		function(req, res){
+  			res.redirect('/dashboard');
+  	});
+
+  // route for logging out
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
+
+
 	//routes for topics controller
 	app.post('/topic/new', function(req, res){
 		topics.new(req, res);
@@ -43,7 +96,7 @@ module.exports = function(app, passport){
 	app.post('/votes/new', function(req, res){
 		posts.upvote(req, res);
 	})
-	app.get('votes', function(req, res){
+	app.get('/votes', function(req, res){
 		posts.allvotes(req, res);
 	})
 	//routes for user profile
@@ -73,3 +126,14 @@ module.exports = function(app, passport){
 }
 
 
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+    		console.log("logged in")
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}

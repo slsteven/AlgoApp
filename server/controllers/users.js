@@ -5,7 +5,30 @@ var Topic = mongoose.model('Topic')
 
 module.exports = (function(){
 	return {
-		
+		findLastUser: function(req, res){
+			console.log("find last user backend controller", req.user.local.email)
+			User.find({"local.email": req.user.local.email}, function(err, result){
+				if(err){
+					console.log("couldnt find arrays")
+				}
+				else{
+					console.log("topics for Arrays:", result)
+					res.json(result);
+				}
+			})
+		},
+		dashboardSignup: function(req, res){
+			console.log("Dashboard Signup backend controller", req.user.email)
+				User.find({"local.email": req.user.email}, function(err, result){
+					if(err){
+						console.log("error", err);
+					}
+					else{
+						console.log("result", result);
+						res.json(result);
+					}
+			})
+		},
 		arrayTopic: function(req, res){
 			Topic.find({category: "Arrays"}, function(err, result){
 				if(err){
@@ -18,7 +41,7 @@ module.exports = (function(){
 			})
 		},
 		new: function(req, res){
-			
+
 			//Check if user exists. If user does, then we just redirect
 			var user = new User ({
 				name: req.body.user.name

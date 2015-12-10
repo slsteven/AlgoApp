@@ -10,20 +10,27 @@ myApp.factory('UserFactory', function ($http){
 	// 	})
 	// }
 
+	//registration for passport
 	factory.newUser = function(user, callback){
 		console.log("inside factory new user:", user.email)
 		$http.post('/signup', user).success(function(output){
-			userInfo = output[0]
 			callback(output);
 
+		})
+	}
+
+	//login for passport
+	factory.loginUser = function(user, callback){
+		console.log("inside factory login user:", user);
+		$http.post('/login', user).success(function(output){
+			console.log("factory login user output:", output);
+			callback(output);
 		})
 	}
 
 	factory.getName = function (callback){
 		callback(userInfo)
 	}
-
-
 	return factory;
 })
 
@@ -77,6 +84,16 @@ myApp.controller('UserController', function ($scope, $location, UserFactory, $ro
 	}
 	$scope.loginUser = function(login){
 		console.log("front end controller login", login);
+		UserFactory.loginUser(login, function(data){
+			if(data.errors){
+				console.log("unsuccesful login");
+			}
+			else {
+				console.log(data);
+				$rootScope.user = data;
+				$location.path('/dashboard');
+			}
+		})
 	}
 })
 

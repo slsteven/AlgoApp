@@ -19,8 +19,8 @@ myApp.factory('TopicFactory', function($http){
 myApp.controller('TopicController', function ($scope, TopicFactory, $location, $rootScope, $routeParams){
 	//save logged_in_user name from homepage. Check user in views
 	$scope.logged_in_user = $rootScope.user;
-	
-	console.log("topic controller", $rootScope.user)
+
+	// console.log("topic controller", $rootScope.user)
 
 	TopicFactory.getTopics(function(data){
 		$scope.all_topics = data;

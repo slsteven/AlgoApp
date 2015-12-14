@@ -151,28 +151,29 @@ function(req, email, password, done) {
 
     // facebook will send back the token and profile
     function(token, refreshToken, profile, done) {
-        console.log("fb strat config auth", configAuth.facebookAuth.clientID)
-        console.log(token)
+        console.log("passport token", token)
+        console.log("passport profile", profile.id)
         // asynchronous
         process.nextTick(function() {
-                console.log("auth facebook passport token:", token)
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
                 console.log("auth facebook passport:", user)
+                console.log("auth facebook error:", err)
                 // if there is an error, stop everything and return that
                 // ie an error connecting to the database
-                if (err)
+                if (err) {
                     console.log("auth err")
                     return done(err);
-
+                }
                 // if the user is found, then log them in
                 if (user) {
                     console.log("auth. user found log them in", user)
                     return done(null, user); // user found, return that user
                 } else {
+                    console.log("auth. adding new user", user)
                     // if there is no user found with that facebook id, create them
                     var newUser            = new User();
-
+                    console.log("auth. adding new user", user)
                     // set all of the facebook information in our user model
                     newUser.facebook.id    = profile.id; // set the users facebook id
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user

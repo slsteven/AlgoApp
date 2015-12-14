@@ -7,10 +7,6 @@ var test = require('../controllers/test.js');
 
 module.exports = function(app, passport){
 
-	app.get('/test', function(req, res) {
-		test.index(req, res);
-	});
-
 	app.post('/user/new', function(req, res){
 		users.new(req, res);
 	})
@@ -19,10 +15,10 @@ module.exports = function(app, passport){
  // 	app.post('/signup', passport.authenticate('local-signup', { name: "Tommy" }, {
 	// 	failureFlash: true
 	// }))
-
-	app.get('/home', function(req, res){
-		 console.log("redirect bc of failure",req.errors.message)
-
+//FINISH ROUTING FOR FB LOGIN ===========================================
+	app.get('/dashboard', isLoggedIn, function(req, res){
+    console.log("home", req.user);
+    res.redirect('#/dashboard');
 	})
 
 	app.post('/signup', passport.authenticate('local-signup', {
@@ -65,11 +61,11 @@ module.exports = function(app, passport){
 
   // console.log(passport.authenticate('facebook', { scope : 'email' }))
   // handle the callback after facebook has authenticated the user
-  app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-  		failureRedirect : '/dashboard'}),
-  		function(req, res){
-  			res.redirect('/dashboard');
-  	});
+   app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+      successRedirect : '/dashboard',
+      failureRedirect : '/'
+        }));
+
 
   // route for logging out
   app.get('/logout', function(req, res) {

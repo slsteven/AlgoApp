@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-4">
 			<p>last edited:</p>
-		</div> 
+		</div>
 		<div class="col-md-4 recap">
 			<a href="#/recap"><button type="button" class=" btn btn-primary btn-lg outline pull-right">Dojo Recap</button></a>
 		</div>
@@ -27,8 +27,11 @@
 	<div class="col-md-10 col-md-offset-1">
 		<h4>Post your answer here...</h4>
 		<form>
+		<!-- TESTING  HLJS-->
+		<div hljs>
 			<div ckeditor="options" ng-model="newPost.content" ready="onReady()">
 	  		</div>
+	  </div>
 			<button type="submit" ng-click="addPost(newPost)" class="btn btn-default pull-right">Post</button>
 		</form>
 	</div>

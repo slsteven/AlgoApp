@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'ckeditor', 'ui.tinymce', 'ui.bootstrap']);
+var myApp = angular.module('myApp', ['ngRoute', 'ckeditor', 'ui.tinymce', 'ui.bootstrap', 'hljs']);
 myApp.config(function ($routeProvider, $locationProvider){
       $routeProvider
             .when('/', {
